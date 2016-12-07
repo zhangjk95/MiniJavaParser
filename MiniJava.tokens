@@ -36,6 +36,7 @@ T__34=35
 Identifier=36
 INTEGER_LITERAL=37
 WS=38
+COMMENT=39
 'class'=1
 '{'=2
 'public'=3
