@@ -15,20 +15,17 @@ public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
 
     @Override
     public Tree visit(ParseTree tree) {
+        return visit(tree, null);
+    }
+
+    public Tree visit(ParseTree tree, Tree parent) {
         Parser parser = this.parser;
         List<Tree> children = new ArrayList<>();
 
-        for (int i = 0; i < tree.getChildCount(); i++) {
-            ParseTree child = tree.getChild(i);
-            if (!(child instanceof TerminalNodeImpl)) {
-                children.add(visit(child));
-            }
-        }
-
-        return new Tree() {
+        Tree res = new Tree() {
             @Override
             public Tree getParent() {
-                return null;
+                return parent;
             }
 
             @Override
@@ -51,5 +48,14 @@ public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
                 return null;
             }
         };
+
+        for (int i = 0; i < tree.getChildCount(); i++) {
+            ParseTree child = tree.getChild(i);
+            if (!(child instanceof TerminalNodeImpl)) {
+                children.add(visit(child, res));
+            }
+        }
+
+        return res;
     }
 }

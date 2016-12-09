@@ -24,8 +24,7 @@ public class Main {
         JFrame frame = new JFrame("Abstract Syntax Tree");
         JPanel panel = new JPanel();
         JScrollPane scrollPane = new JScrollPane(panel);
-        TreeViewer viewer = new TreeViewer(Arrays.asList(
-                parser.getRuleNames()),tree2);
+        TreeViewer viewer = new TreeViewer(null, tree2);
         viewer.setScale(1);
         panel.add(viewer);
         frame.add(scrollPane);
