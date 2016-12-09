@@ -2,7 +2,9 @@ grammar MiniJava;
 
 goal : mainClass ( classDeclaration )* EOF ;
 mainClass : 'class' Identifier '{' 'public' 'static' 'void' 'main' '(' 'String' '[' ']' Identifier ')' '{' statement '}' '}' ;
-classDeclaration : 'class' Identifier ( 'extends' Identifier )? '{' ( varDeclaration )* ( methodDeclaration )* '}' ;
+classDeclaration : 'class' Identifier ( 'extends' Identifier )? '{' varDeclarations methodDeclarations '}' ;
+varDeclarations:( varDeclaration )*;
+methodDeclarations:( methodDeclaration )*;
 varDeclaration : type Identifier ';' ;
 methodDeclaration : 'public' type Identifier '(' ( type Identifier ( ',' type Identifier )* )? ')' '{' ( varDeclaration )* ( statement )* 'return' expression ';' '}' ;
 type : 'int' '[' ']'
