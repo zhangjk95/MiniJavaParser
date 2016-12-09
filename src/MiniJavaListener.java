@@ -37,6 +37,26 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 */
 	void exitClassDeclaration(MiniJavaParser.ClassDeclarationContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link MiniJavaParser#varDeclarations}.
+	 * @param ctx the parse tree
+	 */
+	void enterVarDeclarations(MiniJavaParser.VarDeclarationsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MiniJavaParser#varDeclarations}.
+	 * @param ctx the parse tree
+	 */
+	void exitVarDeclarations(MiniJavaParser.VarDeclarationsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MiniJavaParser#methodDeclarations}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodDeclarations(MiniJavaParser.MethodDeclarationsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MiniJavaParser#methodDeclarations}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodDeclarations(MiniJavaParser.MethodDeclarationsContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link MiniJavaParser#varDeclaration}.
 	 * @param ctx the parse tree
 	 */
