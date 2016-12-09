@@ -2,6 +2,7 @@ import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.gui.TreeViewer;
+import org.antlr.v4.runtime.tree.Tree;
 
 import javax.swing.*;
 import java.io.FileInputStream;
@@ -17,13 +18,14 @@ public class Main {
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         MiniJavaParser parser = new MiniJavaParser(tokens);
         ParseTree tree = parser.goal();
-        //MyMiniJavaVisitor visitor = new MyMiniJavaVisitor();
+        MyMiniJavaVisitor visitor = new MyMiniJavaVisitor(parser);
+        Tree tree2 = visitor.visit(tree);
 
         JFrame frame = new JFrame("Abstract Syntax Tree");
         JPanel panel = new JPanel();
         JScrollPane scrollPane = new JScrollPane(panel);
         TreeViewer viewer = new TreeViewer(Arrays.asList(
-                parser.getRuleNames()),tree);
+                parser.getRuleNames()),tree2);
         viewer.setScale(1);
         panel.add(viewer);
         frame.add(scrollPane);
