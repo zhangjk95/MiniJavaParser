@@ -37,6 +37,26 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 */
 	void exitClassDeclaration(MiniJavaParser.ClassDeclarationContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link MiniJavaParser#name}.
+	 * @param ctx the parse tree
+	 */
+	void enterName(MiniJavaParser.NameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MiniJavaParser#name}.
+	 * @param ctx the parse tree
+	 */
+	void exitName(MiniJavaParser.NameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MiniJavaParser#baseclass}.
+	 * @param ctx the parse tree
+	 */
+	void enterBaseclass(MiniJavaParser.BaseclassContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MiniJavaParser#baseclass}.
+	 * @param ctx the parse tree
+	 */
+	void exitBaseclass(MiniJavaParser.BaseclassContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link MiniJavaParser#varDeclarations}.
 	 * @param ctx the parse tree
 	 */
@@ -106,4 +126,264 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitExpression(MiniJavaParser.ExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code nextAnd}
+	 * labeled alternative in {@link MiniJavaParser#and}.
+	 * @param ctx the parse tree
+	 */
+	void enterNextAnd(MiniJavaParser.NextAndContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code nextAnd}
+	 * labeled alternative in {@link MiniJavaParser#and}.
+	 * @param ctx the parse tree
+	 */
+	void exitNextAnd(MiniJavaParser.NextAndContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code andTo}
+	 * labeled alternative in {@link MiniJavaParser#and}.
+	 * @param ctx the parse tree
+	 */
+	void enterAndTo(MiniJavaParser.AndToContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code andTo}
+	 * labeled alternative in {@link MiniJavaParser#and}.
+	 * @param ctx the parse tree
+	 */
+	void exitAndTo(MiniJavaParser.AndToContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code lessThan}
+	 * labeled alternative in {@link MiniJavaParser#less}.
+	 * @param ctx the parse tree
+	 */
+	void enterLessThan(MiniJavaParser.LessThanContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code lessThan}
+	 * labeled alternative in {@link MiniJavaParser#less}.
+	 * @param ctx the parse tree
+	 */
+	void exitLessThan(MiniJavaParser.LessThanContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code nextLess}
+	 * labeled alternative in {@link MiniJavaParser#less}.
+	 * @param ctx the parse tree
+	 */
+	void enterNextLess(MiniJavaParser.NextLessContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code nextLess}
+	 * labeled alternative in {@link MiniJavaParser#less}.
+	 * @param ctx the parse tree
+	 */
+	void exitNextLess(MiniJavaParser.NextLessContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code plusTo}
+	 * labeled alternative in {@link MiniJavaParser#plus}.
+	 * @param ctx the parse tree
+	 */
+	void enterPlusTo(MiniJavaParser.PlusToContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code plusTo}
+	 * labeled alternative in {@link MiniJavaParser#plus}.
+	 * @param ctx the parse tree
+	 */
+	void exitPlusTo(MiniJavaParser.PlusToContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code nextPlus}
+	 * labeled alternative in {@link MiniJavaParser#plus}.
+	 * @param ctx the parse tree
+	 */
+	void enterNextPlus(MiniJavaParser.NextPlusContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code nextPlus}
+	 * labeled alternative in {@link MiniJavaParser#plus}.
+	 * @param ctx the parse tree
+	 */
+	void exitNextPlus(MiniJavaParser.NextPlusContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code nextMultiply}
+	 * labeled alternative in {@link MiniJavaParser#multiply}.
+	 * @param ctx the parse tree
+	 */
+	void enterNextMultiply(MiniJavaParser.NextMultiplyContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code nextMultiply}
+	 * labeled alternative in {@link MiniJavaParser#multiply}.
+	 * @param ctx the parse tree
+	 */
+	void exitNextMultiply(MiniJavaParser.NextMultiplyContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code multiplyTo}
+	 * labeled alternative in {@link MiniJavaParser#multiply}.
+	 * @param ctx the parse tree
+	 */
+	void enterMultiplyTo(MiniJavaParser.MultiplyToContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code multiplyTo}
+	 * labeled alternative in {@link MiniJavaParser#multiply}.
+	 * @param ctx the parse tree
+	 */
+	void exitMultiplyTo(MiniJavaParser.MultiplyToContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code notTo}
+	 * labeled alternative in {@link MiniJavaParser#not}.
+	 * @param ctx the parse tree
+	 */
+	void enterNotTo(MiniJavaParser.NotToContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code notTo}
+	 * labeled alternative in {@link MiniJavaParser#not}.
+	 * @param ctx the parse tree
+	 */
+	void exitNotTo(MiniJavaParser.NotToContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code nextNot}
+	 * labeled alternative in {@link MiniJavaParser#not}.
+	 * @param ctx the parse tree
+	 */
+	void enterNextNot(MiniJavaParser.NextNotContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code nextNot}
+	 * labeled alternative in {@link MiniJavaParser#not}.
+	 * @param ctx the parse tree
+	 */
+	void exitNextNot(MiniJavaParser.NextNotContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code newarrayTo}
+	 * labeled alternative in {@link MiniJavaParser#newarray}.
+	 * @param ctx the parse tree
+	 */
+	void enterNewarrayTo(MiniJavaParser.NewarrayToContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code newarrayTo}
+	 * labeled alternative in {@link MiniJavaParser#newarray}.
+	 * @param ctx the parse tree
+	 */
+	void exitNewarrayTo(MiniJavaParser.NewarrayToContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code nextneWarray}
+	 * labeled alternative in {@link MiniJavaParser#newarray}.
+	 * @param ctx the parse tree
+	 */
+	void enterNextneWarray(MiniJavaParser.NextneWarrayContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code nextneWarray}
+	 * labeled alternative in {@link MiniJavaParser#newarray}.
+	 * @param ctx the parse tree
+	 */
+	void exitNextneWarray(MiniJavaParser.NextneWarrayContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code newTo}
+	 * labeled alternative in {@link MiniJavaParser#newid}.
+	 * @param ctx the parse tree
+	 */
+	void enterNewTo(MiniJavaParser.NewToContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code newTo}
+	 * labeled alternative in {@link MiniJavaParser#newid}.
+	 * @param ctx the parse tree
+	 */
+	void exitNewTo(MiniJavaParser.NewToContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code nextNewid}
+	 * labeled alternative in {@link MiniJavaParser#newid}.
+	 * @param ctx the parse tree
+	 */
+	void enterNextNewid(MiniJavaParser.NextNewidContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code nextNewid}
+	 * labeled alternative in {@link MiniJavaParser#newid}.
+	 * @param ctx the parse tree
+	 */
+	void exitNextNewid(MiniJavaParser.NextNewidContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code nextArray}
+	 * labeled alternative in {@link MiniJavaParser#array}.
+	 * @param ctx the parse tree
+	 */
+	void enterNextArray(MiniJavaParser.NextArrayContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code nextArray}
+	 * labeled alternative in {@link MiniJavaParser#array}.
+	 * @param ctx the parse tree
+	 */
+	void exitNextArray(MiniJavaParser.NextArrayContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code arrayTo}
+	 * labeled alternative in {@link MiniJavaParser#array}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrayTo(MiniJavaParser.ArrayToContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code arrayTo}
+	 * labeled alternative in {@link MiniJavaParser#array}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrayTo(MiniJavaParser.ArrayToContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code nextFunction}
+	 * labeled alternative in {@link MiniJavaParser#function}.
+	 * @param ctx the parse tree
+	 */
+	void enterNextFunction(MiniJavaParser.NextFunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code nextFunction}
+	 * labeled alternative in {@link MiniJavaParser#function}.
+	 * @param ctx the parse tree
+	 */
+	void exitNextFunction(MiniJavaParser.NextFunctionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code functionNone}
+	 * labeled alternative in {@link MiniJavaParser#function}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionNone(MiniJavaParser.FunctionNoneContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code functionNone}
+	 * labeled alternative in {@link MiniJavaParser#function}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionNone(MiniJavaParser.FunctionNoneContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code functionLengh}
+	 * labeled alternative in {@link MiniJavaParser#function}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionLengh(MiniJavaParser.FunctionLenghContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code functionLengh}
+	 * labeled alternative in {@link MiniJavaParser#function}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionLengh(MiniJavaParser.FunctionLenghContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code functionVariable}
+	 * labeled alternative in {@link MiniJavaParser#function}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionVariable(MiniJavaParser.FunctionVariableContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code functionVariable}
+	 * labeled alternative in {@link MiniJavaParser#function}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionVariable(MiniJavaParser.FunctionVariableContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MiniJavaParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void enterElement(MiniJavaParser.ElementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MiniJavaParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void exitElement(MiniJavaParser.ElementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MiniJavaParser#special}.
+	 * @param ctx the parse tree
+	 */
+	void enterSpecial(MiniJavaParser.SpecialContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MiniJavaParser#special}.
+	 * @param ctx the parse tree
+	 */
+	void exitSpecial(MiniJavaParser.SpecialContext ctx);
 }
