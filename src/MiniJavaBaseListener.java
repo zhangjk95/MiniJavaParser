@@ -39,25 +39,25 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassDeclaration(MiniJavaParser.ClassDeclarationContext ctx) { }
+	@Override public void enterMainMethod(MiniJavaParser.MainMethodContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassDeclaration(MiniJavaParser.ClassDeclarationContext ctx) { }
+	@Override public void exitMainMethod(MiniJavaParser.MainMethodContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterName(MiniJavaParser.NameContext ctx) { }
+	@Override public void enterClass(MiniJavaParser.ClassContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitName(MiniJavaParser.NameContext ctx) { }
+	@Override public void exitClass(MiniJavaParser.ClassContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -75,13 +75,13 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMethodDeclarations(MiniJavaParser.MethodDeclarationsContext ctx) { }
+	@Override public void enterMethods(MiniJavaParser.MethodsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMethodDeclarations(MiniJavaParser.MethodDeclarationsContext ctx) { }
+	@Override public void exitMethods(MiniJavaParser.MethodsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -555,13 +555,13 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionName(MiniJavaParser.FunctionNameContext ctx) { }
+	@Override public void enterName(MiniJavaParser.NameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionName(MiniJavaParser.FunctionNameContext ctx) { }
+	@Override public void exitName(MiniJavaParser.NameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

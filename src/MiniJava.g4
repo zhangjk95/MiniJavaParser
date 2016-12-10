@@ -1,11 +1,13 @@
 grammar MiniJava;
 
 goal : mainClass ( classDeclaration )* EOF ;
-mainClass : 'class' name '{' 'public' 'static' 'void' 'main' '(' 'String' '[' ']' identifier ')' '{' statement '}' '}' ;
-classDeclaration : 'class' name ('extends' baseclass)? '{' vars methodDeclarations '}' ;
-name: identifier ;
+mainClass : 'class' name mainmethodleaf  ;
+mainmethodleaf :'{' 'public' 'static' 'void' 'main' '(' 'String' '[' ']' identifier ')''{' statement '}' '}' #mainMethod
+;
+classDeclaration : 'class' name ('extends' baseclass)? '{' vars methods '}'  #class
+;
 baseclass: identifier ;
-methodDeclarations:( method )*;
+methods:( method )*;
 var : type identifier ';' ;
 method : 'public' returnType name '(' params? ')' '{' vars statements '}' ;
 params : param( ',' param )* ;
@@ -62,7 +64,7 @@ arrayExpr : arrayExpr '[' special ']' #array
 	;
 functionExpr : functionExpr '.' 'length' #getLength
 	//| function '.' identifier '(' ')' #functionNone
-	| functionExpr '.' funcname '(' args ')'  #methodCall 
+	| functionExpr '.' name '(' args ')'  #methodCall 
 	| element #nextFunction
 ;
 //funcobject :
@@ -83,7 +85,7 @@ special:
     | andExpr
 ;
 
-funcname : identifier #functionName
+name : identifier 
 ;
 specialElement: 'true' | 'false' | 'this' ;
 identifier: Identifier ;

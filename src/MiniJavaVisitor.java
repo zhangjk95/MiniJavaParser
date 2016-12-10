@@ -22,17 +22,19 @@ public interface MiniJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMainClass(MiniJavaParser.MainClassContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link MiniJavaParser#classDeclaration}.
+	 * Visit a parse tree produced by the {@code mainMethod}
+	 * labeled alternative in {@link MiniJavaParser#mainmethodleaf}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassDeclaration(MiniJavaParser.ClassDeclarationContext ctx);
+	T visitMainMethod(MiniJavaParser.MainMethodContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link MiniJavaParser#name}.
+	 * Visit a parse tree produced by the {@code class}
+	 * labeled alternative in {@link MiniJavaParser#classDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitName(MiniJavaParser.NameContext ctx);
+	T visitClass(MiniJavaParser.ClassContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link MiniJavaParser#baseclass}.
 	 * @param ctx the parse tree
@@ -40,11 +42,11 @@ public interface MiniJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitBaseclass(MiniJavaParser.BaseclassContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link MiniJavaParser#methodDeclarations}.
+	 * Visit a parse tree produced by {@link MiniJavaParser#methods}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMethodDeclarations(MiniJavaParser.MethodDeclarationsContext ctx);
+	T visitMethods(MiniJavaParser.MethodsContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link MiniJavaParser#var}.
 	 * @param ctx the parse tree
@@ -307,12 +309,11 @@ public interface MiniJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSpecial(MiniJavaParser.SpecialContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code functionName}
-	 * labeled alternative in {@link MiniJavaParser#funcname}.
+	 * Visit a parse tree produced by {@link MiniJavaParser#name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFunctionName(MiniJavaParser.FunctionNameContext ctx);
+	T visitName(MiniJavaParser.NameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link MiniJavaParser#specialElement}.
 	 * @param ctx the parse tree
