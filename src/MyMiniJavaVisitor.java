@@ -63,7 +63,12 @@ public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
         for (int i = 0; i < tree.getChildCount(); i++) {
             ParseTree child = tree.getChild(i);
             while (getName(child).startsWith("Next") || getName(child).equals("Element") || getName(child).equals("Special")) {
-                child = child.getChild(0);
+                for (int j = 0; j < child.getChildCount(); j++) {
+                    if (!(child.getChild(j) instanceof TerminalNodeImpl)) {
+                        child = child.getChild(j);
+                        break;
+                    }
+                }
             }
             if (!(child instanceof TerminalNodeImpl)) {
                 children.add(visit(child, res));
