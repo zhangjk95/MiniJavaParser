@@ -1,29 +1,30 @@
 grammar MiniJava;
 
 goal : mainClass ( classDeclaration )* EOF ;
-mainClass : name '{' 'public' 'static' 'void' 'main' '(' 'String' '[' ']' identifier ')' '{' statement '}' '}' ;
-classDeclaration : name ( baseclass)? '{' varDeclarations methodDeclarations '}' ;
-name:
-	'class' identifier
-	;
-baseclass:
-	'extends' identifier 
-    ;
+mainClass : 'class' name '{' 'public' 'static' 'void' 'main' '(' 'String' '[' ']' identifier ')' '{' statement '}' '}' ;
+classDeclaration : 'class' name ('extends' baseclass)? '{' varDeclarations methodDeclarations '}' ;
+name: identifier ;
+baseclass: identifier ;
 varDeclarations:( varDeclaration )*;
-methodDeclarations:( methodDeclaration )*;
+methodDeclarations:( method )*;
 varDeclaration : type identifier ';' ;
-methodDeclaration : 'public' type identifier '(' ( type identifier ( ',' type identifier )* )? ')' '{' ( varDeclaration )* ( statement )* 'return' expression ';' '}' ;
+method : 'public' returnType name '(' params? ')' '{' vars statements '}' ;
+params : ( type identifier ( ',' type identifier )* ) ;
+vars : ( varDeclaration )* ;
+statements : ( statement )* ;
+returnType : type ;
 type : 'int' '[' ']'
     | 'boolean'
     | 'int'
     | identifier
     ;
-statement : '{' ( statement )* '}' #allStatement
+statement : '{' ( statement )* '}' #block
     | 'if' '(' expression ')' statement 'else' statement #if
     | 'while' '(' expression ')' statement  #while
-    | 'System.out.println' '(' expression ')' ';' #sprint
-    | identifier '=' expression ';'  #indentifier
-    | identifier '[' expression ']' '=' expression ';' #identifierOneofArray
+    | 'System.out.println' '(' expression ')' ';' #output
+    | identifier '=' expression ';'  #assign
+    | identifier '[' expression ']' '=' expression ';' #assignArray
+    | 'return' expression ';' #return
     ;
 
 expression :
