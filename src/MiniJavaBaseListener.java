@@ -135,6 +135,18 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterStatements(MiniJavaParser.StatementsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStatements(MiniJavaParser.StatementsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterBlock(MiniJavaParser.BlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -447,25 +459,25 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionLengh(MiniJavaParser.FunctionLenghContext ctx) { }
+	@Override public void enterGetLength(MiniJavaParser.GetLengthContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionLengh(MiniJavaParser.FunctionLenghContext ctx) { }
+	@Override public void exitGetLength(MiniJavaParser.GetLengthContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionVariable(MiniJavaParser.FunctionVariableContext ctx) { }
+	@Override public void enterMethodCall(MiniJavaParser.MethodCallContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionVariable(MiniJavaParser.FunctionVariableContext ctx) { }
+	@Override public void exitMethodCall(MiniJavaParser.MethodCallContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -502,6 +514,18 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitSpecial(MiniJavaParser.SpecialContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctionName(MiniJavaParser.FunctionNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctionName(MiniJavaParser.FunctionNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -107,6 +107,16 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 */
 	void exitType(MiniJavaParser.TypeContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link MiniJavaParser#statements}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatements(MiniJavaParser.StatementsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MiniJavaParser#statements}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatements(MiniJavaParser.StatementsContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code block}
 	 * labeled alternative in {@link MiniJavaParser#statement}.
 	 * @param ctx the parse tree
@@ -417,29 +427,29 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 */
 	void exitNextFunction(MiniJavaParser.NextFunctionContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code functionLengh}
+	 * Enter a parse tree produced by the {@code getLength}
 	 * labeled alternative in {@link MiniJavaParser#functionExpr}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionLengh(MiniJavaParser.FunctionLenghContext ctx);
+	void enterGetLength(MiniJavaParser.GetLengthContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code functionLengh}
+	 * Exit a parse tree produced by the {@code getLength}
 	 * labeled alternative in {@link MiniJavaParser#functionExpr}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionLengh(MiniJavaParser.FunctionLenghContext ctx);
+	void exitGetLength(MiniJavaParser.GetLengthContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code functionVariable}
+	 * Enter a parse tree produced by the {@code methodCall}
 	 * labeled alternative in {@link MiniJavaParser#functionExpr}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionVariable(MiniJavaParser.FunctionVariableContext ctx);
+	void enterMethodCall(MiniJavaParser.MethodCallContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code functionVariable}
+	 * Exit a parse tree produced by the {@code methodCall}
 	 * labeled alternative in {@link MiniJavaParser#functionExpr}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionVariable(MiniJavaParser.FunctionVariableContext ctx);
+	void exitMethodCall(MiniJavaParser.MethodCallContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link MiniJavaParser#element}.
 	 * @param ctx the parse tree
@@ -470,6 +480,18 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitSpecial(MiniJavaParser.SpecialContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code functionName}
+	 * labeled alternative in {@link MiniJavaParser#funcname}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionName(MiniJavaParser.FunctionNameContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code functionName}
+	 * labeled alternative in {@link MiniJavaParser#funcname}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionName(MiniJavaParser.FunctionNameContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link MiniJavaParser#specialElement}.
 	 * @param ctx the parse tree

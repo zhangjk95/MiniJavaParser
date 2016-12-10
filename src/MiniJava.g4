@@ -12,12 +12,14 @@ baseclass:
 varDeclarations:( varDeclaration )*;
 methodDeclarations:( methodDeclaration )*;
 varDeclaration : type identifier ';' ;
-methodDeclaration : 'public' type identifier '(' ( type identifier ( ',' type identifier )* )? ')' '{' ( varDeclaration )* ( statement )* 'return' expression ';' '}' ;
+methodDeclaration : 'public' type identifier '(' ( type identifier ( ',' type identifier )* )? ')' '{' varDeclarations statements '}' ;
 type : 'int' '[' ']'
     | 'boolean'
     | 'int'
     | Identifier
     ;
+statements:
+( statement )* ;
 statement : '{' ( statement )* '}' #block
     | 'if' '(' expression ')' statement 'else' statement #if
     | 'while' '(' expression ')' statement  #while
@@ -60,11 +62,14 @@ newidExpr : 'new' identifier '(' ')' #new
 arrayExpr : arrayExpr '[' special ']' #array
 	| functionExpr #nextArray
 	;
-functionExpr : functionExpr '.' 'length' #functionLengh
+functionExpr : functionExpr '.' 'length' #getLength
 	//| function '.' identifier '(' ')' #functionNone
-	| functionExpr '.' identifier '(' args ')'  #functionVariable 
+	| functionExpr '.' funcname '(' args ')'  #methodCall 
 	| element #nextFunction
 ;
+//funcobject :
+	//functionExpr #object
+	//;
 element : 
 	integer
 	| specialElement
@@ -79,7 +84,8 @@ special:
 	| identifier 
     | andExpr
 ;
-
+funcname : identifier #functionName
+;
 specialElement: 'true' | 'false' | 'this' ;
 identifier: Identifier ;
 integer: INTEGER_LITERAL ;
