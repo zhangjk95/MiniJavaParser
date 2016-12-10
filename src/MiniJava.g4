@@ -1,52 +1,36 @@
 grammar MiniJava;
 
 goal : mainClass ( classDeclaration )* EOF ;
-mainClass : name '{' 'public' 'static' 'void' 'main' '(' 'String' '[' ']' Identifier ')' '{' statement '}' '}' ;
+mainClass : name '{' 'public' 'static' 'void' 'main' '(' 'String' '[' ']' identifier ')' '{' statement '}' '}' ;
 classDeclaration : name ( baseclass)? '{' varDeclarations methodDeclarations '}' ;
 name:
-	'class' Identifier
+	'class' identifier
 	;
 baseclass:
-	'extends' Identifier 
+	'extends' identifier 
     ;
 varDeclarations:( varDeclaration )*;
 methodDeclarations:( methodDeclaration )*;
-varDeclaration : type Identifier ';' ;
-methodDeclaration : 'public' type Identifier '(' ( type Identifier ( ',' type Identifier )* )? ')' '{' ( varDeclaration )* ( statement )* 'return' expression ';' '}' ;
+varDeclaration : type identifier ';' ;
+methodDeclaration : 'public' type identifier '(' ( type identifier ( ',' type identifier )* )? ')' '{' ( varDeclaration )* ( statement )* 'return' expression ';' '}' ;
 type : 'int' '[' ']'
     | 'boolean'
     | 'int'
-    | Identifier
+    | identifier
     ;
 statement : '{' ( statement )* '}'
     | 'if' '(' expression ')' statement 'else' statement
     | 'while' '(' expression ')' statement
     | 'System.out.println' '(' expression ')' ';'
-    | Identifier '=' expression ';'
-    | Identifier '[' expression ']' '=' expression ';'
+    | identifier '=' expression ';'
+    | identifier '[' expression ']' '=' expression ';'
     ;
-/*Expression	::=	Expression ( "&&" | "<" | "+" | "-" | "*" ) Expression
-|	Expression "[" Expression "]"
-|	Expression "." "length"
-|	Expression "." Identifier "(" ( Expression ( "," Expression )* )? ")"
-|	<INTEGER_LITERAL>
-|	"true"
-|	"false"
-|	Identifier
-|	"this"
-|	"new" "int" "[" Expression "]"
-|	"new" Identifier "(" ")"
-|	"!" Expression
-|	"(" Expression ")"*/
+
 expression :
 and
     ;	
 
-//expr: expr ('-' | '+' ) term | term ;
-//term: term '*' factor | factor ;
-//factor : Identifier|INTEGER_LITERAL |/*'('factor')' |'('term')'| */'('expr')'|'('expression')';
-
-//(expression)>'a.func()/a.length' > 'a[b]' > 'new A()' > 'new int[n]' > '!' >  '*' > '+-' > '<' > '&&' >  (INTEGER_LITERAL|'true' | 'false'| Identifier | 'this')
+//(expression)>'a.func()/a.length' > 'a[b]' > 'new A()' > 'new int[n]' > '!' >  '*' > '+-' > '<' > '&&' >  (integer|'true' | 'false'| identifier | 'this')
 
 
 and : and '&&' less #andTo
@@ -67,82 +51,37 @@ not : '!' not #notTo
 newarray : 'new' 'int' '[' special ']' #newarrayTo
 	| newid #nextneWarray
 	;
-newid : 'new' Identifier '(' ')' #newTo
+newid : 'new' identifier '(' ')' #newTo
 	| array #nextNewid
 	;
 array : array '[' special ']' #arrayTo
 	| function #nextArray
 	;
 function : function '.' 'length' #functionLengh
-	| function '.' Identifier '(' ')' #functionNone
-	| function '.' Identifier '(' ( special ( ',' special )* ) ')'  #functionVariable 
+	| function '.' identifier '(' ')' #functionNone
+	| function '.' identifier '(' ( special ( ',' special )* ) ')'  #functionVariable 
 	| element #nextFunction
 ;
 element : 
-	INTEGER_LITERAL
+	integer
 	| 'true' 
 	| 'false'
-	| Identifier 
+	| identifier 
 	| 'this' 
     | '('and')'
 ;
 special:
-	INTEGER_LITERAL
+	integer
 	| 'true' 
 	| 'false'
-	| Identifier 
+	| identifier 
 	| 'this' 
     | and
 ;
 
-/*
-and : and '<' less
-	| less #nextLess
-	;
-less : less '<' plus
-	| plus #nextplus
-	;
-plus : plus ( '-' | '+' ) multiply 
-	| multiply #nextmultiply
-	;
-multiply : multiply '*' not
-	| not #nextnot
-	;
-not : '!' not
-	| newarray #nextnewarray
-	;
-newarray : 'new' 'int' '[' special ']'
-	| newid #nextnewid
-	;
-newid : 'new' Identifier '(' ')'
-	| array #nextarray
-	;
-array : array '[' special ']'
-	| function #nextfunction
-	;
-function : function '.' 'length' 
-	| function '.' Identifier '(' ')' 
-	| function '.' 'length' | function '.' Identifier '(' ( special ( ',' special )* ) ')'  
-	| function '.' 'length'
-	| element #nextelement
-;
-element : 
-	INTEGER_LITERAL
-	| 'true' 
-	| 'false'
-	| Identifier 
-	| 'this' 
-    | '('and')'
-;
-special:
-	INTEGER_LITERAL
-	| 'true' 
-	| 'false'
-	| Identifier 
-	| 'this' 
-    | and
-;
-*/
+
+identifier: Identifier ;
+integer: INTEGER_LITERAL ;
 Identifier : [A-Za-z][A-Za-z0-9_]* ;
 INTEGER_LITERAL : [0-9]+ ;
 WS : [ \t\r\n]+ -> skip ;
