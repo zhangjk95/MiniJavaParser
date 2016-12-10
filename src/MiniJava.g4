@@ -64,24 +64,21 @@ function : function '.' 'length' #functionLengh
 ;
 element : 
 	integer
-	| 'true' 
-	| 'false'
+	| specialElement
 	| identifier 
-	| 'this' 
     | '('and')'
 ;
 special:
 	integer
-	| 'true' 
-	| 'false'
+	| specialElement
 	| identifier 
-	| 'this' 
     | and
 ;
 
-
+specialElement: 'true' | 'false' | 'this' ;
 identifier: Identifier ;
 integer: INTEGER_LITERAL ;
+
 Identifier : [A-Za-z][A-Za-z0-9_]* ;
 INTEGER_LITERAL : [0-9]+ ;
 WS : [ \t\r\n]+ -> skip ;

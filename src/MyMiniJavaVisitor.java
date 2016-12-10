@@ -32,7 +32,16 @@ public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
 
             @Override
             public Object getPayload() {
-                return getName(tree);
+                String name = getName(tree);
+                if (name.equals("Identifier") || name.equals("Integer")) {
+                    return String.format("%s \"%s\"", name, tree.getText());
+                }
+                else if (name.equals("SpecialElement")) {
+                    return tree.getText();
+                }
+                else {
+                    return name;
+                }
             }
 
             @Override
@@ -53,7 +62,7 @@ public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
 
         for (int i = 0; i < tree.getChildCount(); i++) {
             ParseTree child = tree.getChild(i);
-            while (getName(child).startsWith("Next")) {
+            while (getName(child).startsWith("Next") || getName(child).equals("Element") || getName(child).equals("Special")) {
                 child = child.getChild(0);
             }
             if (!(child instanceof TerminalNodeImpl)) {
