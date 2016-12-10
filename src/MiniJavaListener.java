@@ -331,18 +331,6 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 */
 	void exitNextFunction(MiniJavaParser.NextFunctionContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code functionNone}
-	 * labeled alternative in {@link MiniJavaParser#function}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunctionNone(MiniJavaParser.FunctionNoneContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code functionNone}
-	 * labeled alternative in {@link MiniJavaParser#function}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunctionNone(MiniJavaParser.FunctionNoneContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code functionLengh}
 	 * labeled alternative in {@link MiniJavaParser#function}.
 	 * @param ctx the parse tree

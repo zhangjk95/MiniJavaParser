@@ -58,7 +58,7 @@ array : array '[' special ']' #arrayTo
 	| function #nextArray
 	;
 function : function '.' 'length' #functionLengh
-	| function '.' identifier '(' ')' #functionNone
+	//| function '.' identifier '(' ')' #functionNone
 	| function '.' identifier '(' args ')'  #functionVariable 
 	| element #nextFunction
 ;
@@ -69,7 +69,7 @@ element :
     | '('and')'
 ;
 args:
-	special ( ',' special )*;
+	(special ( ',' special )*)?;
 special:
 	integer
 	| specialElement

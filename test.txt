@@ -10,7 +10,7 @@ class Fac extends A{
     public int ComputeFac(int num){
 	int num_aux ;
 	a=1+2*(3&&4);
-	a=obj.func(1+2*(3&&4),new A(),a[5]);
+	a=obj.func();
 	return num_aux ;
     }
 
