@@ -18,12 +18,12 @@ type : 'int' '[' ']'
     | 'int'
     | identifier
     ;
-statement : '{' ( statement )* '}'
-    | 'if' '(' expression ')' statement 'else' statement
-    | 'while' '(' expression ')' statement
-    | 'System.out.println' '(' expression ')' ';'
-    | identifier '=' expression ';'
-    | identifier '[' expression ']' '=' expression ';'
+statement : '{' ( statement )* '}' #allStatement
+    | 'if' '(' expression ')' statement 'else' statement #if
+    | 'while' '(' expression ')' statement  #while
+    | 'System.out.println' '(' expression ')' ';' #sprint
+    | identifier '=' expression ';'  #indentifier
+    | identifier '[' expression ']' '=' expression ';' #identifierOneofArray
     ;
 
 expression :
@@ -58,8 +58,8 @@ array : array '[' special ']' #arrayTo
 	| function #nextArray
 	;
 function : function '.' 'length' #functionLengh
-	| function '.' identifier '(' ')' #functionNone
-	| function '.' identifier '(' ( special ( ',' special )* ) ')'  #functionVariable 
+	//| function '.' identifier '(' ')' #functionNone
+	| function '.' identifier '(' args ')'  #functionVariable 
 	| element #nextFunction
 ;
 element : 
@@ -68,6 +68,8 @@ element :
 	| identifier 
     | '('and')'
 ;
+args:
+	(special ( ',' special )*)?;
 special:
 	integer
 	| specialElement
