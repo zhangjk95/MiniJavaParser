@@ -7,7 +7,21 @@ class Factorial{
 class Fac extends A{
     fs a;
 	dsfs asd;
-    public int ComputeFac(int num){
+	int pq;
+    public int ComputeFac(int num,int con, int dsf){
+	int num_aux ;
+	fs a;
+	dsfs asd;
+	a=1-2*(3&&4);
+	a=obj.func(1-2*(3&&4),new Fac(),a[5]).func1(12).func12();
+	a[5]=6;
+	if(true)
+		System.out.println((new Fac()).ComputeFac(10));
+	else
+		a[5]=7;
+	return num_aux;
+    }
+	public int ComputeFac(int num){
 	int num_aux ;
 	fs a;
 	dsfs asd;

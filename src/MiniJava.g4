@@ -8,7 +8,9 @@ baseclass: identifier ;
 methodDeclarations:( method )*;
 var : type identifier ';' ;
 method : 'public' returnType name '(' params? ')' '{' vars statements '}' ;
-params : ( type identifier ( ',' type identifier )* ) ;
+params : param( ',' param )* ;
+param:
+    type identifier;
 vars : ( var )* ;
 statements : ( statement )* ;
 returnType : type ;
