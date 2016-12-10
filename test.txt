@@ -4,14 +4,13 @@ class Factorial{
     }
 }
 
-class Fac {
-
+class Fac extends A{
+    fs a;
+	dsfs asd;
     public int ComputeFac(int num){
 	int num_aux ;
-	if (num < 1)
-	    num_aux = 1 && true ;
-	else 
-	    num_aux = num * (this.ComputeFac(num-1)) ;
+	a=1+2*(3&&4);
+	a=obj.func(1+2*(3&&4),new A(),a[5]);
 	return num_aux ;
     }
 
