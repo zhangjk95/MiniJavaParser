@@ -16,9 +16,9 @@ methodDeclaration : 'public' type identifier '(' ( type identifier ( ',' type id
 type : 'int' '[' ']'
     | 'boolean'
     | 'int'
-    | identifier
+    | Identifier
     ;
-statement : '{' ( statement )* '}' #allStatement
+statement : '{' ( statement )* '}' #allStantement
     | 'if' '(' expression ')' statement 'else' statement #if
     | 'while' '(' expression ')' statement  #while
     | 'System.out.println' '(' expression ')' ';' #sprint
@@ -27,46 +27,48 @@ statement : '{' ( statement )* '}' #allStatement
     ;
 
 expression :
-and
+andExpr
     ;	
 
 //(expression)>'a.func()/a.length' > 'a[b]' > 'new A()' > 'new int[n]' > '!' >  '*' > '+-' > '<' > '&&' >  (integer|'true' | 'false'| identifier | 'this')
 
 
-and : and '&&' less #andTo
-	| less #nextAnd
+andExpr : andExpr '&&' lessExpr #and
+	| lessExpr #nextAnd
 	;
-less : less '<' plus #lessThan
-	| plus #nextLess
+lessExpr : lessExpr '<' addExpr #lessThan
+	| addExpr #nextLess
 	;
-plus : plus ( '-' | '+' ) multiply #plusTo
-	| multiply #nextPlus
+
+addExpr : addExpr '+' multiplyExpr #add
+    | addExpr '-' multiplyExpr #subtract
+	| multiplyExpr #nextPlus
 	;
-multiply : multiply '*' not #multiplyTo
-	| not #nextMultiply
+multiplyExpr : multiplyExpr '*' notExpr #multiply
+	| notExpr #nextMultiply
 	;
-not : '!' not #notTo
-	| newarray #nextNot
+notExpr : '!' notExpr #not
+	| newarrayExpr #nextNot
 	;
-newarray : 'new' 'int' '[' special ']' #newarrayTo
-	| newid #nextneWarray
+newarrayExpr : 'new' 'int' '[' special ']' #newarray
+	| newidExpr #nextneWarray
 	;
-newid : 'new' identifier '(' ')' #newTo
-	| array #nextNewid
+newidExpr : 'new' identifier '(' ')' #new
+	| arrayExpr #nextNewid
 	;
-array : array '[' special ']' #arrayTo
-	| function #nextArray
+arrayExpr : arrayExpr '[' special ']' #array
+	| functionExpr #nextArray
 	;
-function : function '.' 'length' #functionLengh
+functionExpr : functionExpr '.' 'length' #functionLengh
 	//| function '.' identifier '(' ')' #functionNone
-	| function '.' identifier '(' args ')'  #functionVariable 
+	| functionExpr '.' identifier '(' args ')'  #functionVariable 
 	| element #nextFunction
 ;
 element : 
 	integer
 	| specialElement
 	| identifier 
-    | '('and')'
+    | '('andExpr')'
 ;
 args:
 	(special ( ',' special )*)?;
@@ -74,7 +76,7 @@ special:
 	integer
 	| specialElement
 	| identifier 
-    | and
+    | andExpr
 ;
 
 specialElement: 'true' | 'false' | 'this' ;

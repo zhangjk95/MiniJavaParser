@@ -135,13 +135,13 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAllStatement(MiniJavaParser.AllStatementContext ctx) { }
+	@Override public void enterAllStantement(MiniJavaParser.AllStantementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAllStatement(MiniJavaParser.AllStatementContext ctx) { }
+	@Override public void exitAllStantement(MiniJavaParser.AllStantementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -231,13 +231,13 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAndTo(MiniJavaParser.AndToContext ctx) { }
+	@Override public void enterAnd(MiniJavaParser.AndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAndTo(MiniJavaParser.AndToContext ctx) { }
+	@Override public void exitAnd(MiniJavaParser.AndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -267,13 +267,25 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPlusTo(MiniJavaParser.PlusToContext ctx) { }
+	@Override public void enterAdd(MiniJavaParser.AddContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPlusTo(MiniJavaParser.PlusToContext ctx) { }
+	@Override public void exitAdd(MiniJavaParser.AddContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSubtract(MiniJavaParser.SubtractContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSubtract(MiniJavaParser.SubtractContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -303,25 +315,25 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMultiplyTo(MiniJavaParser.MultiplyToContext ctx) { }
+	@Override public void enterMultiply(MiniJavaParser.MultiplyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMultiplyTo(MiniJavaParser.MultiplyToContext ctx) { }
+	@Override public void exitMultiply(MiniJavaParser.MultiplyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNotTo(MiniJavaParser.NotToContext ctx) { }
+	@Override public void enterNot(MiniJavaParser.NotContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNotTo(MiniJavaParser.NotToContext ctx) { }
+	@Override public void exitNot(MiniJavaParser.NotContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -339,13 +351,13 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNewarrayTo(MiniJavaParser.NewarrayToContext ctx) { }
+	@Override public void enterNewarray(MiniJavaParser.NewarrayContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNewarrayTo(MiniJavaParser.NewarrayToContext ctx) { }
+	@Override public void exitNewarray(MiniJavaParser.NewarrayContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -363,13 +375,13 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNewTo(MiniJavaParser.NewToContext ctx) { }
+	@Override public void enterNew(MiniJavaParser.NewContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNewTo(MiniJavaParser.NewToContext ctx) { }
+	@Override public void exitNew(MiniJavaParser.NewContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -399,13 +411,13 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterArrayTo(MiniJavaParser.ArrayToContext ctx) { }
+	@Override public void enterArray(MiniJavaParser.ArrayContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitArrayTo(MiniJavaParser.ArrayToContext ctx) { }
+	@Override public void exitArray(MiniJavaParser.ArrayContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
