@@ -5,6 +5,8 @@ import org.antlr.v4.runtime.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
     private Parser parser;
@@ -30,7 +32,7 @@ public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
 
             @Override
             public Object getPayload() {
-                return tree.toStringTree(parser).split(" ")[0].substring(1);
+                return getName(tree);
             }
 
             @Override
@@ -51,11 +53,25 @@ public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
 
         for (int i = 0; i < tree.getChildCount(); i++) {
             ParseTree child = tree.getChild(i);
+            while (getName(child).startsWith("Next")) {
+                child = child.getChild(0);
+            }
             if (!(child instanceof TerminalNodeImpl)) {
                 children.add(visit(child, res));
             }
         }
 
         return res;
+    }
+
+    private String getName(Tree tree) {
+        Pattern p = Pattern.compile("\\w+\\$(\\w+)Context");
+        Matcher m = p.matcher(tree.getClass().getName());
+        if (m.matches()) {
+            return m.group(1);
+        }
+        else {
+            return tree.getClass().getName();
+        }
     }
 }
