@@ -143,6 +143,8 @@ special:
     | and
 ;
 */
+identifier: Identifier ;
+integer: INTEGER_LITERAL ;
 Identifier : [A-Za-z][A-Za-z0-9_]* ;
 INTEGER_LITERAL : [0-9]+ ;
 WS : [ \t\r\n]+ -> skip ;
