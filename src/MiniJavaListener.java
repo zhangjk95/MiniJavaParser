@@ -107,17 +107,17 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 */
 	void exitType(MiniJavaParser.TypeContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code allStantement}
+	 * Enter a parse tree produced by the {@code block}
 	 * labeled alternative in {@link MiniJavaParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void enterAllStantement(MiniJavaParser.AllStantementContext ctx);
+	void enterBlock(MiniJavaParser.BlockContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code allStantement}
+	 * Exit a parse tree produced by the {@code block}
 	 * labeled alternative in {@link MiniJavaParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void exitAllStantement(MiniJavaParser.AllStantementContext ctx);
+	void exitBlock(MiniJavaParser.BlockContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code if}
 	 * labeled alternative in {@link MiniJavaParser#statement}.
@@ -143,41 +143,53 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 */
 	void exitWhile(MiniJavaParser.WhileContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code sprint}
+	 * Enter a parse tree produced by the {@code output}
 	 * labeled alternative in {@link MiniJavaParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void enterSprint(MiniJavaParser.SprintContext ctx);
+	void enterOutput(MiniJavaParser.OutputContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sprint}
+	 * Exit a parse tree produced by the {@code output}
 	 * labeled alternative in {@link MiniJavaParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void exitSprint(MiniJavaParser.SprintContext ctx);
+	void exitOutput(MiniJavaParser.OutputContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code indentifier}
+	 * Enter a parse tree produced by the {@code assign}
 	 * labeled alternative in {@link MiniJavaParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void enterIndentifier(MiniJavaParser.IndentifierContext ctx);
+	void enterAssign(MiniJavaParser.AssignContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code indentifier}
+	 * Exit a parse tree produced by the {@code assign}
 	 * labeled alternative in {@link MiniJavaParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void exitIndentifier(MiniJavaParser.IndentifierContext ctx);
+	void exitAssign(MiniJavaParser.AssignContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code identifierOneofArray}
+	 * Enter a parse tree produced by the {@code assignArray}
 	 * labeled alternative in {@link MiniJavaParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void enterIdentifierOneofArray(MiniJavaParser.IdentifierOneofArrayContext ctx);
+	void enterAssignArray(MiniJavaParser.AssignArrayContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code identifierOneofArray}
+	 * Exit a parse tree produced by the {@code assignArray}
 	 * labeled alternative in {@link MiniJavaParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void exitIdentifierOneofArray(MiniJavaParser.IdentifierOneofArrayContext ctx);
+	void exitAssignArray(MiniJavaParser.AssignArrayContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code return}
+	 * labeled alternative in {@link MiniJavaParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterReturn(MiniJavaParser.ReturnContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code return}
+	 * labeled alternative in {@link MiniJavaParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitReturn(MiniJavaParser.ReturnContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link MiniJavaParser#expression}.
 	 * @param ctx the parse tree

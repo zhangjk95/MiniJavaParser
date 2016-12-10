@@ -18,12 +18,13 @@ type : 'int' '[' ']'
     | 'int'
     | Identifier
     ;
-statement : '{' ( statement )* '}' #allStantement
+statement : '{' ( statement )* '}' #block
     | 'if' '(' expression ')' statement 'else' statement #if
     | 'while' '(' expression ')' statement  #while
-    | 'System.out.println' '(' expression ')' ';' #sprint
-    | identifier '=' expression ';'  #indentifier
-    | identifier '[' expression ']' '=' expression ';' #identifierOneofArray
+    | 'System.out.println' '(' expression ')' ';' #output
+    | identifier '=' expression ';'  #assign
+    | identifier '[' expression ']' '=' expression ';' #assignArray
+	| 'return' expression ';' #return
     ;
 
 expression :

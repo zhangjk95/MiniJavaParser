@@ -135,13 +135,13 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAllStantement(MiniJavaParser.AllStantementContext ctx) { }
+	@Override public void enterBlock(MiniJavaParser.BlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAllStantement(MiniJavaParser.AllStantementContext ctx) { }
+	@Override public void exitBlock(MiniJavaParser.BlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -171,37 +171,49 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSprint(MiniJavaParser.SprintContext ctx) { }
+	@Override public void enterOutput(MiniJavaParser.OutputContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSprint(MiniJavaParser.SprintContext ctx) { }
+	@Override public void exitOutput(MiniJavaParser.OutputContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIndentifier(MiniJavaParser.IndentifierContext ctx) { }
+	@Override public void enterAssign(MiniJavaParser.AssignContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIndentifier(MiniJavaParser.IndentifierContext ctx) { }
+	@Override public void exitAssign(MiniJavaParser.AssignContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIdentifierOneofArray(MiniJavaParser.IdentifierOneofArrayContext ctx) { }
+	@Override public void enterAssignArray(MiniJavaParser.AssignArrayContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIdentifierOneofArray(MiniJavaParser.IdentifierOneofArrayContext ctx) { }
+	@Override public void exitAssignArray(MiniJavaParser.AssignArrayContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterReturn(MiniJavaParser.ReturnContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitReturn(MiniJavaParser.ReturnContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
