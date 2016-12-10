@@ -2,8 +2,11 @@ grammar MiniJava;
 
 goal : mainClass ( classDeclaration )* EOF ;
 mainClass : 'class' name mainmethodleaf  ;
-mainmethodleaf :'{' 'public' 'static' 'void' 'main' '(' 'String' '[' ']' identifier ')''{' statement '}' '}' #mainMethod
+mainmethodleaf :'{' 'public' 'static' 'void' 'main' '(' 'String' '[' ']' paramfomain ')''{' statement '}' '}' #mainMethod
 ;
+paramfomain:
+    identifier #mainParam
+	;
 classDeclaration : 'class' name ('extends' baseclass)? '{' vars methods '}'  #class
 ;
 baseclass: identifier ;
