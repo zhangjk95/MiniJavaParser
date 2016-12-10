@@ -256,12 +256,12 @@ public interface MiniJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitNextNewid(MiniJavaParser.NextNewidContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code nextArray}
+	 * Visit a parse tree produced by the {@code nextFunction}
 	 * labeled alternative in {@link MiniJavaParser#arrayExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNextArray(MiniJavaParser.NextArrayContext ctx);
+	T visitNextFunction(MiniJavaParser.NextFunctionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code array}
 	 * labeled alternative in {@link MiniJavaParser#arrayExpr}.
@@ -270,22 +270,15 @@ public interface MiniJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitArray(MiniJavaParser.ArrayContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code nextFunction}
-	 * labeled alternative in {@link MiniJavaParser#functionExpr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNextFunction(MiniJavaParser.NextFunctionContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code getLength}
-	 * labeled alternative in {@link MiniJavaParser#functionExpr}.
+	 * labeled alternative in {@link MiniJavaParser#arrayExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitGetLength(MiniJavaParser.GetLengthContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code methodCall}
-	 * labeled alternative in {@link MiniJavaParser#functionExpr}.
+	 * labeled alternative in {@link MiniJavaParser#arrayExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */

@@ -459,13 +459,13 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNextArray(MiniJavaParser.NextArrayContext ctx) { }
+	@Override public void enterNextFunction(MiniJavaParser.NextFunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNextArray(MiniJavaParser.NextArrayContext ctx) { }
+	@Override public void exitNextFunction(MiniJavaParser.NextFunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -478,18 +478,6 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitArray(MiniJavaParser.ArrayContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterNextFunction(MiniJavaParser.NextFunctionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitNextFunction(MiniJavaParser.NextFunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

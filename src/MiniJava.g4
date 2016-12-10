@@ -60,11 +60,9 @@ newidExpr : 'new' identifier '(' ')' #new
 	| arrayExpr #nextNewid
 	;
 arrayExpr : arrayExpr '[' special ']' #array
-	| functionExpr #nextArray
-	;
-functionExpr : functionExpr '.' 'length' #getLength
+	| arrayExpr '.' 'length' #getLength
 	//| function '.' identifier '(' ')' #functionNone
-	| functionExpr '.' name '(' args ')'  #methodCall 
+	| arrayExpr '.' name '(' args ')'  #methodCall 
 	| element #nextFunction
 ;
 //funcobject :
