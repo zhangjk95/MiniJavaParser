@@ -2,15 +2,14 @@ grammar MiniJava;
 
 goal : mainClass ( classDeclaration )* EOF ;
 mainClass : 'class' name '{' 'public' 'static' 'void' 'main' '(' 'String' '[' ']' identifier ')' '{' statement '}' '}' ;
-classDeclaration : 'class' name ('extends' baseclass)? '{' varDeclarations methodDeclarations '}' ;
+classDeclaration : 'class' name ('extends' baseclass)? '{' vars methodDeclarations '}' ;
 name: identifier ;
 baseclass: identifier ;
-varDeclarations:( varDeclaration )*;
 methodDeclarations:( method )*;
-varDeclaration : type identifier ';' ;
+var : type identifier ';' ;
 method : 'public' returnType name '(' params? ')' '{' vars statements '}' ;
 params : ( type identifier ( ',' type identifier )* ) ;
-vars : ( varDeclaration )* ;
+vars : ( var )* ;
 statements : ( statement )* ;
 returnType : type ;
 type : 'int' '[' ']'
@@ -28,46 +27,50 @@ statement : '{' ( statement )* '}' #block
     ;
 
 expression :
-and
+andExpr
     ;	
 
 //(expression)>'a.func()/a.length' > 'a[b]' > 'new A()' > 'new int[n]' > '!' >  '*' > '+-' > '<' > '&&' >  (integer|'true' | 'false'| identifier | 'this')
 
+andExpr : andExpr '&&' lessExpr #and
+	| lessExpr #nextAnd
+	;
+lessExpr : lessExpr '<' addExpr #isLessThan
+	| addExpr #nextLess
+	;
 
-and : and '&&' less #andTo
-	| less #nextAnd
+addExpr : addExpr '+' multiplyExpr #add
+    | addExpr '-' multiplyExpr #subtract
+	| multiplyExpr #nextPlus
 	;
-less : less '<' plus #lessThan
-	| plus #nextLess
+multiplyExpr : multiplyExpr '*' notExpr #multiply
+	| notExpr #nextMultiply
 	;
-plus : plus ( '-' | '+' ) multiply #plusTo
-	| multiply #nextPlus
+notExpr : '!' notExpr #not
+	| newarrayExpr #nextNot
 	;
-multiply : multiply '*' not #multiplyTo
-	| not #nextMultiply
+newarrayExpr : 'new' 'int' '[' special ']' #newarray
+	| newidExpr #nextneWarray
 	;
-not : '!' not #notTo
-	| newarray #nextNot
+newidExpr : 'new' identifier '(' ')' #new
+	| arrayExpr #nextNewid
 	;
-newarray : 'new' 'int' '[' special ']' #newarrayTo
-	| newid #nextneWarray
+arrayExpr : arrayExpr '[' special ']' #array
+	| functionExpr #nextArray
 	;
-newid : 'new' identifier '(' ')' #newTo
-	| array #nextNewid
-	;
-array : array '[' special ']' #arrayTo
-	| function #nextArray
-	;
-function : function '.' 'length' #functionLengh
+functionExpr : functionExpr '.' 'length' #getLength
 	//| function '.' identifier '(' ')' #functionNone
-	| function '.' identifier '(' args ')'  #functionVariable 
+	| functionExpr '.' funcname '(' args ')'  #methodCall 
 	| element #nextFunction
 ;
+//funcobject :
+	//functionExpr #object
+	//;
 element : 
 	integer
 	| specialElement
 	| identifier 
-    | '('and')'
+    | '('andExpr')'
 ;
 args:
 	(special ( ',' special )*)?;
@@ -75,9 +78,11 @@ special:
 	integer
 	| specialElement
 	| identifier 
-    | and
+    | andExpr
 ;
 
+funcname : identifier #functionName
+;
 specialElement: 'true' | 'false' | 'this' ;
 identifier: Identifier ;
 integer: INTEGER_LITERAL ;

@@ -38,7 +38,7 @@ public class MiniJavaLexer extends Lexer {
 		null, "'class'", "'{'", "'public'", "'static'", "'void'", "'main'", "'('", 
 		"'String'", "'['", "']'", "')'", "'}'", "'extends'", "';'", "','", "'int'", 
 		"'boolean'", "'if'", "'else'", "'while'", "'System.out.println'", "'='", 
-		"'return'", "'&&'", "'<'", "'-'", "'+'", "'*'", "'!'", "'new'", "'.'", 
+		"'return'", "'&&'", "'<'", "'+'", "'-'", "'*'", "'!'", "'new'", "'.'", 
 		"'length'", "'true'", "'false'", "'this'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
@@ -163,8 +163,8 @@ public class MiniJavaLexer extends Lexer {
 		"\2\u00bb\u00bc\7?\2\2\u00bc.\3\2\2\2\u00bd\u00be\7t\2\2\u00be\u00bf\7"+
 		"g\2\2\u00bf\u00c0\7v\2\2\u00c0\u00c1\7w\2\2\u00c1\u00c2\7t\2\2\u00c2\u00c3"+
 		"\7p\2\2\u00c3\60\3\2\2\2\u00c4\u00c5\7(\2\2\u00c5\u00c6\7(\2\2\u00c6\62"+
-		"\3\2\2\2\u00c7\u00c8\7>\2\2\u00c8\64\3\2\2\2\u00c9\u00ca\7/\2\2\u00ca"+
-		"\66\3\2\2\2\u00cb\u00cc\7-\2\2\u00cc8\3\2\2\2\u00cd\u00ce\7,\2\2\u00ce"+
+		"\3\2\2\2\u00c7\u00c8\7>\2\2\u00c8\64\3\2\2\2\u00c9\u00ca\7-\2\2\u00ca"+
+		"\66\3\2\2\2\u00cb\u00cc\7/\2\2\u00cc8\3\2\2\2\u00cd\u00ce\7,\2\2\u00ce"+
 		":\3\2\2\2\u00cf\u00d0\7#\2\2\u00d0<\3\2\2\2\u00d1\u00d2\7p\2\2\u00d2\u00d3"+
 		"\7g\2\2\u00d3\u00d4\7y\2\2\u00d4>\3\2\2\2\u00d5\u00d6\7\60\2\2\u00d6@"+
 		"\3\2\2\2\u00d7\u00d8\7n\2\2\u00d8\u00d9\7g\2\2\u00d9\u00da\7p\2\2\u00da"+
