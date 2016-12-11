@@ -39,25 +39,37 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassDeclaration(MiniJavaParser.ClassDeclarationContext ctx) { }
+	@Override public void enterMainMethod(MiniJavaParser.MainMethodContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassDeclaration(MiniJavaParser.ClassDeclarationContext ctx) { }
+	@Override public void exitMainMethod(MiniJavaParser.MainMethodContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterName(MiniJavaParser.NameContext ctx) { }
+	@Override public void enterMainParam(MiniJavaParser.MainParamContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitName(MiniJavaParser.NameContext ctx) { }
+	@Override public void exitMainParam(MiniJavaParser.MainParamContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterClass(MiniJavaParser.ClassContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitClass(MiniJavaParser.ClassContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -75,37 +87,25 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVarDeclarations(MiniJavaParser.VarDeclarationsContext ctx) { }
+	@Override public void enterMethods(MiniJavaParser.MethodsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVarDeclarations(MiniJavaParser.VarDeclarationsContext ctx) { }
+	@Override public void exitMethods(MiniJavaParser.MethodsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMethodDeclarations(MiniJavaParser.MethodDeclarationsContext ctx) { }
+	@Override public void enterVar(MiniJavaParser.VarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMethodDeclarations(MiniJavaParser.MethodDeclarationsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterVarDeclaration(MiniJavaParser.VarDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitVarDeclaration(MiniJavaParser.VarDeclarationContext ctx) { }
+	@Override public void exitVar(MiniJavaParser.VarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -130,6 +130,18 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitParams(MiniJavaParser.ParamsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterParam(MiniJavaParser.ParamContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitParam(MiniJavaParser.ParamContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -291,25 +303,25 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAndTo(MiniJavaParser.AndToContext ctx) { }
+	@Override public void enterAnd(MiniJavaParser.AndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAndTo(MiniJavaParser.AndToContext ctx) { }
+	@Override public void exitAnd(MiniJavaParser.AndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLessThan(MiniJavaParser.LessThanContext ctx) { }
+	@Override public void enterIsLessThan(MiniJavaParser.IsLessThanContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLessThan(MiniJavaParser.LessThanContext ctx) { }
+	@Override public void exitIsLessThan(MiniJavaParser.IsLessThanContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -327,13 +339,25 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPlusTo(MiniJavaParser.PlusToContext ctx) { }
+	@Override public void enterAdd(MiniJavaParser.AddContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPlusTo(MiniJavaParser.PlusToContext ctx) { }
+	@Override public void exitAdd(MiniJavaParser.AddContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSubtract(MiniJavaParser.SubtractContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSubtract(MiniJavaParser.SubtractContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -363,25 +387,25 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMultiplyTo(MiniJavaParser.MultiplyToContext ctx) { }
+	@Override public void enterMultiply(MiniJavaParser.MultiplyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMultiplyTo(MiniJavaParser.MultiplyToContext ctx) { }
+	@Override public void exitMultiply(MiniJavaParser.MultiplyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNotTo(MiniJavaParser.NotToContext ctx) { }
+	@Override public void enterNot(MiniJavaParser.NotContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNotTo(MiniJavaParser.NotToContext ctx) { }
+	@Override public void exitNot(MiniJavaParser.NotContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -399,13 +423,13 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNewarrayTo(MiniJavaParser.NewarrayToContext ctx) { }
+	@Override public void enterNewarray(MiniJavaParser.NewarrayContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNewarrayTo(MiniJavaParser.NewarrayToContext ctx) { }
+	@Override public void exitNewarray(MiniJavaParser.NewarrayContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -423,13 +447,13 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNewTo(MiniJavaParser.NewToContext ctx) { }
+	@Override public void enterNew(MiniJavaParser.NewContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNewTo(MiniJavaParser.NewToContext ctx) { }
+	@Override public void exitNew(MiniJavaParser.NewContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -447,30 +471,6 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNextArray(MiniJavaParser.NextArrayContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitNextArray(MiniJavaParser.NextArrayContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterArrayTo(MiniJavaParser.ArrayToContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitArrayTo(MiniJavaParser.ArrayToContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterNextFunction(MiniJavaParser.NextFunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -483,25 +483,37 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionLengh(MiniJavaParser.FunctionLenghContext ctx) { }
+	@Override public void enterArray(MiniJavaParser.ArrayContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionLengh(MiniJavaParser.FunctionLenghContext ctx) { }
+	@Override public void exitArray(MiniJavaParser.ArrayContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionVariable(MiniJavaParser.FunctionVariableContext ctx) { }
+	@Override public void enterGetLength(MiniJavaParser.GetLengthContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionVariable(MiniJavaParser.FunctionVariableContext ctx) { }
+	@Override public void exitGetLength(MiniJavaParser.GetLengthContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMethodCall(MiniJavaParser.MethodCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMethodCall(MiniJavaParser.MethodCallContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -538,6 +550,18 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitSpecial(MiniJavaParser.SpecialContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterName(MiniJavaParser.NameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitName(MiniJavaParser.NameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
