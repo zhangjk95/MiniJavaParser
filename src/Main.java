@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Arrays;
+import org.antlr.v4.runtime.DefaultErrorStrategy;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -17,6 +18,7 @@ public class Main {
         MiniJavaLexer lexer = new MiniJavaLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         MiniJavaParser parser = new MiniJavaParser(tokens);
+        parser.setErrorHandler(new MyErrorStrategy());
         ParseTree tree = parser.goal();
         MyMiniJavaVisitor visitor = new MyMiniJavaVisitor(parser);
         Tree tree2 = visitor.visit(tree);

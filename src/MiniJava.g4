@@ -27,10 +27,11 @@ type : 'int' '[' ']'
 statement : '{' ( statement )* '}' #block
     | 'if' '(' expression ')' statement 'else' statement #if
     | 'while' '(' expression ')' statement  #while
-    | 'System.out.println' '(' expression ')' ';' #output
+    | 'System' '.' 'out' '.' 'println' '(' expression ')' ';' #output
     | identifier '=' expression ';'  #assign
     | identifier '[' expression ']' '=' expression ';' #assignArray
     | 'return' expression ';' #return
+    
     ;
 
 expression :
@@ -91,6 +92,7 @@ name : identifier
 specialElement: 'true' | 'false' | 'this' ;
 identifier: Identifier ;
 integer: INTEGER_LITERAL ;
+
 
 Identifier : [A-Za-z][A-Za-z0-9_]* ;
 INTEGER_LITERAL : [0-9]+ ;
