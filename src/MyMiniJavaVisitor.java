@@ -33,7 +33,7 @@ public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
             @Override
             public Object getPayload() {
                 String name = getName(tree);
-                if (name.equals("Identifier") || name.equals("Integer")) {
+                if (name.equals("Identifier") || name.equals("Integer") || name.equals("Type") && tree.getChild(0) instanceof TerminalNodeImpl) {
                     return String.format("%s \"%s\"", name, tree.getText());
                 }
                 else if (name.equals("SpecialElement")) {
