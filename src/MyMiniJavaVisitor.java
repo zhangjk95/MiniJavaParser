@@ -1,7 +1,7 @@
+import org.antlr.v4.runtime.CommonToken;
 import org.antlr.v4.runtime.Parser;
-import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.TerminalNodeImpl;
-import org.antlr.v4.runtime.tree.Tree;
+import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.tree.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +21,10 @@ public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
     }
 
     public Tree visit(ParseTree tree, Tree parent) {
+        if (isError(tree)) {
+            return new ErrorNodeImpl(new CommonToken(0, getName(tree)));
+        }
+
         Parser parser = this.parser;
         List<Tree> children = new ArrayList<>();
 
@@ -87,5 +91,28 @@ public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
         else {
             return tree.getClass().getName();
         }
+    }
+
+    private boolean isError(ParseTree tree) {
+        if (tree instanceof ErrorNode) {
+            return true;
+        }
+        if (tree instanceof ParserRuleContext) {
+            ParserRuleContext s = (ParserRuleContext)tree;
+            if (s.exception != null && s.stop != null && s.stop.getTokenIndex() < s.start.getTokenIndex()) {
+                return true;
+            };
+        }
+        boolean error = true;
+        if (tree.getChildCount() == 0) {
+            error = false;
+        }
+        for (int i = 0; i < tree.getChildCount(); i++) {
+            ParseTree child = tree.getChild(i);
+            if (!(child instanceof ErrorNode)) {
+                error = false;
+            }
+        }
+        return error;
     }
 }
