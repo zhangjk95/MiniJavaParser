@@ -329,17 +329,17 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 */
 	void exitSubtract(MiniJavaParser.SubtractContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code nextPlus}
+	 * Enter a parse tree produced by the {@code nextAdd}
 	 * labeled alternative in {@link MiniJavaParser#addExpr}.
 	 * @param ctx the parse tree
 	 */
-	void enterNextPlus(MiniJavaParser.NextPlusContext ctx);
+	void enterNextAdd(MiniJavaParser.NextAddContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code nextPlus}
+	 * Exit a parse tree produced by the {@code nextAdd}
 	 * labeled alternative in {@link MiniJavaParser#addExpr}.
 	 * @param ctx the parse tree
 	 */
-	void exitNextPlus(MiniJavaParser.NextPlusContext ctx);
+	void exitNextAdd(MiniJavaParser.NextAddContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code nextMultiply}
 	 * labeled alternative in {@link MiniJavaParser#multiplyExpr}.

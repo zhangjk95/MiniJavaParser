@@ -8,7 +8,7 @@ paramfomain:
     identifier #mainParam
 	;
 classDeclaration : 'class' name ('extends' baseclass)? '{' vars methods '}'  #class
-;
+    ;
 baseclass: identifier ;
 methods:( method )*;
 var : type identifier ';' ;
@@ -31,11 +31,10 @@ statement : '{' ( statement )* '}' #block
     | identifier '=' expression ';'  #assign
     | identifier '[' expression ']' '=' expression ';' #assignArray
     | 'return' expression ';' #return
-    
     ;
 
 expression :
-andExpr
+    andExpr
     ;	
 
 //(expression)>'a.func()/a.length' > 'a[b]' > 'new A()' > 'new int[n]' > '!' >  '*' > '+-' > '<' > '&&' >  (integer|'true' | 'false'| identifier | 'this')
@@ -49,7 +48,7 @@ lessExpr : lessExpr '<' addExpr #isLessThan
 
 addExpr : addExpr '+' multiplyExpr #add
     | addExpr '-' multiplyExpr #subtract
-	| multiplyExpr #nextPlus
+	| multiplyExpr #nextAdd
 	;
 multiplyExpr : multiplyExpr '*' notExpr #multiply
 	| notExpr #nextMultiply
@@ -65,19 +64,15 @@ newidExpr : 'new' identifier '(' ')' #new
 	;
 arrayExpr : arrayExpr '[' special ']' #array
 	| arrayExpr '.' 'length' #getLength
-	//| function '.' identifier '(' ')' #functionNone
 	| arrayExpr '.' name '(' args ')'  #methodCall 
 	| element #nextFunction
-;
-//funcobject :
-	//functionExpr #object
-	//;
+    ;
 element : 
 	integer
 	| specialElement
 	| identifier 
     | '('andExpr')'
-;
+    ;
 args:
 	(special ( ',' special )*)?;
 special:
@@ -85,10 +80,9 @@ special:
 	| specialElement
 	| identifier 
     | andExpr
-;
+    ;
 
-name : identifier 
-;
+name : identifier ;
 specialElement: 'true' | 'false' | 'this' ;
 identifier: Identifier ;
 integer: INTEGER_LITERAL ;

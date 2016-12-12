@@ -1677,22 +1677,22 @@ public class MiniJavaParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class NextPlusContext extends AddExprContext {
+	public static class NextAddContext extends AddExprContext {
 		public MultiplyExprContext multiplyExpr() {
 			return getRuleContext(MultiplyExprContext.class,0);
 		}
-		public NextPlusContext(AddExprContext ctx) { copyFrom(ctx); }
+		public NextAddContext(AddExprContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MiniJavaListener ) ((MiniJavaListener)listener).enterNextPlus(this);
+			if ( listener instanceof MiniJavaListener ) ((MiniJavaListener)listener).enterNextAdd(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MiniJavaListener ) ((MiniJavaListener)listener).exitNextPlus(this);
+			if ( listener instanceof MiniJavaListener ) ((MiniJavaListener)listener).exitNextAdd(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MiniJavaVisitor ) return ((MiniJavaVisitor<? extends T>)visitor).visitNextPlus(this);
+			if ( visitor instanceof MiniJavaVisitor ) return ((MiniJavaVisitor<? extends T>)visitor).visitNextAdd(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1713,7 +1713,7 @@ public class MiniJavaParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			_localctx = new NextPlusContext(_localctx);
+			_localctx = new NextAddContext(_localctx);
 			_ctx = _localctx;
 			_prevctx = _localctx;
 

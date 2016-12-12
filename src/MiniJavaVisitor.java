@@ -200,12 +200,12 @@ public interface MiniJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSubtract(MiniJavaParser.SubtractContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code nextPlus}
+	 * Visit a parse tree produced by the {@code nextAdd}
 	 * labeled alternative in {@link MiniJavaParser#addExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNextPlus(MiniJavaParser.NextPlusContext ctx);
+	T visitNextAdd(MiniJavaParser.NextAddContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code nextMultiply}
 	 * labeled alternative in {@link MiniJavaParser#multiplyExpr}.

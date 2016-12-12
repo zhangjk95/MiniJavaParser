@@ -363,13 +363,13 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNextPlus(MiniJavaParser.NextPlusContext ctx) { }
+	@Override public void enterNextAdd(MiniJavaParser.NextAddContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNextPlus(MiniJavaParser.NextPlusContext ctx) { }
+	@Override public void exitNextAdd(MiniJavaParser.NextAddContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

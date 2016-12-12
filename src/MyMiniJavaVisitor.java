@@ -9,11 +9,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
-    private Parser parser;
-
-    public MyMiniJavaVisitor(Parser parser) {
-        this.parser = parser;
-    }
 
     @Override
     public Tree visit(ParseTree tree) {
@@ -22,10 +17,9 @@ public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
 
     public Tree visit(ParseTree tree, Tree parent) {
         if (isError(tree)) {
-            return new ErrorNodeImpl(new CommonToken(0, getName(tree)));
+            return new ErrorNodeImpl(new CommonToken(0, getDisplayName(tree)));
         }
 
-        Parser parser = this.parser;
         List<Tree> children = new ArrayList<>();
 
         Tree res = new Tree() {
@@ -36,16 +30,7 @@ public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
 
             @Override
             public Object getPayload() {
-                String name = getName(tree);
-                if (name.equals("Identifier") || name.equals("Integer") || name.equals("Type") && tree.getChild(0) instanceof TerminalNodeImpl) {
-                    return String.format("%s \"%s\"", name, tree.getText());
-                }
-                else if (name.equals("SpecialElement")) {
-                    return tree.getText();
-                }
-                else {
-                    return name;
-                }
+                return getDisplayName(tree);
             }
 
             @Override
@@ -74,7 +59,7 @@ public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
                     }
                 }
             }
-            if (!(child instanceof TerminalNodeImpl)) {
+            if (!(child instanceof TerminalNodeImpl || isError(child) && child.getText().equals(""))) {
                 children.add(visit(child, res));
             }
         }
@@ -82,7 +67,7 @@ public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
         return res;
     }
 
-    private String getName(Tree tree) {
+    private String getName(ParseTree tree) {
         Pattern p = Pattern.compile("\\w+\\$(\\w+)Context");
         Matcher m = p.matcher(tree.getClass().getName());
         if (m.matches()) {
@@ -90,6 +75,19 @@ public class MyMiniJavaVisitor extends MiniJavaBaseVisitor<Tree> {
         }
         else {
             return tree.getClass().getName();
+        }
+    }
+
+    private String getDisplayName(ParseTree tree) {
+        String name = getName(tree);
+        if (name.equals("Identifier") || name.equals("Integer") || name.equals("Type") && tree.getChild(0) instanceof TerminalNodeImpl) {
+            return String.format("%s \"%s\"", name, tree.getText());
+        }
+        else if (name.equals("SpecialElement")) {
+            return tree.getText();
+        }
+        else {
+            return name;
         }
     }
 

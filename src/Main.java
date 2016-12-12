@@ -8,7 +8,6 @@ import javax.swing.*;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Arrays;
-import org.antlr.v4.runtime.DefaultErrorStrategy;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -20,7 +19,7 @@ public class Main {
         MiniJavaParser parser = new MiniJavaParser(tokens);
         parser.setErrorHandler(new MyErrorStrategy());
         ParseTree tree = parser.goal();
-        MyMiniJavaVisitor visitor = new MyMiniJavaVisitor(parser);
+        MyMiniJavaVisitor visitor = new MyMiniJavaVisitor();
         Tree tree2 = visitor.visit(tree);
 
         JFrame frame = new JFrame("Abstract Syntax Tree");
@@ -28,7 +27,7 @@ public class Main {
         JScrollPane scrollPane = new JScrollPane(panel);
         TreeViewer viewer = new TreeViewer(null, tree2);
         //TreeViewer viewer = new TreeViewer(Arrays.asList(parser.getRuleNames()),tree);
-        viewer.setScale(1.5);
+        viewer.setScale(1);
         panel.add(viewer);
         frame.add(scrollPane);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

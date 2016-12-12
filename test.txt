@@ -1,36 +1,35 @@
-class Factorial{
-    public static void main(Strin[] a){
-	System.out.println(a[4].Fac()[3]);
+class Factorial {
+    public static void main(String[] a) {
+        System.out.println((new Fac())[4].ComputeFac()[3]);
     }
 }
 
-class Fac extends A{
-    fs a;
-	dsfs asd;
-	int pq;
+// 语法分析测试
+class Fac extends A {
+    boolean b;
+	Fac fac;
+	int p;
     public int ComputeFac(int num,int con, int dsf){
-	int num_aux ;
-	fs a;
-	dsfs asd;
-	a=1-2*(3&&4);
-	a=dda.func(1-2*(3&&4),new Fac(),a[5]).func1(12).func12();
-	a[5]=6;
-	if(true)
-		a=dasd.length;
-	else
-		a[5]=7;
-	return num_aux;
+        int num_aux ;
+        int[] a;
+        C c;
+        a = new int[10];
+        num_aux=2+(3&&4);
+        num_aux=c.func2(1-2*(3&&4),new Fac(),a[5]).func1(12).func12();
+        if (true)
+            num_aux=a.length;
+        else
+            a[5]=7;
+        return num_aux;
     }
+}
 
-}
-class Fac extends A{
-    public int ComputeFac(){
-	int num_aux ;
+// 词法分析测试
+class C{
+    public     int      func1         (        )                      {
+	int      num_aux          ;
 	}
-	 public int ComputeFac(){
+	 public int func2(int a,int b ,   int c){
 	int num_aux ;
 }
- public int ComputeFac(){
-	int num_aux ;
-}
-}
+ public int func3(){int num_aux;}}
