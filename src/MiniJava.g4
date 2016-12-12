@@ -57,15 +57,13 @@ notExpr : '!' notExpr #not
 	| newarrayExpr #nextNot
 	;
 newarrayExpr : 'new' 'int' '[' special ']' #newarray
-	| newidExpr #nextneWarray
+	| newExpr #nextneWarray
 	;
-newidExpr : 'new' identifier '(' ')' #new
-	| arrayExpr #nextNewid
-	;
-arrayExpr : arrayExpr '[' special ']' #array
-	| arrayExpr '.' 'length' #getLength
-	| arrayExpr '.' name '(' args ')'  #methodCall 
-	| element #nextFunction
+newExpr : 'new' identifier '(' ')' #new
+    | newExpr '[' special ']' #array
+	| newExpr '.' 'length' #getLength
+	| newExpr '.' name '(' args ')'  #methodCall 
+	| element #nextNew
     ;
 element : 
 	integer

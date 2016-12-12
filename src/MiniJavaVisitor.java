@@ -250,42 +250,35 @@ public interface MiniJavaVisitor<T> extends ParseTreeVisitor<T> {
 	T visitNextneWarray(MiniJavaParser.NextneWarrayContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code new}
-	 * labeled alternative in {@link MiniJavaParser#newidExpr}.
+	 * labeled alternative in {@link MiniJavaParser#newExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitNew(MiniJavaParser.NewContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code nextNewid}
-	 * labeled alternative in {@link MiniJavaParser#newidExpr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNextNewid(MiniJavaParser.NextNewidContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code nextFunction}
-	 * labeled alternative in {@link MiniJavaParser#arrayExpr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNextFunction(MiniJavaParser.NextFunctionContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code array}
-	 * labeled alternative in {@link MiniJavaParser#arrayExpr}.
+	 * labeled alternative in {@link MiniJavaParser#newExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitArray(MiniJavaParser.ArrayContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code getLength}
-	 * labeled alternative in {@link MiniJavaParser#arrayExpr}.
+	 * labeled alternative in {@link MiniJavaParser#newExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitGetLength(MiniJavaParser.GetLengthContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code nextNew}
+	 * labeled alternative in {@link MiniJavaParser#newExpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNextNew(MiniJavaParser.NextNewContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code methodCall}
-	 * labeled alternative in {@link MiniJavaParser#arrayExpr}.
+	 * labeled alternative in {@link MiniJavaParser#newExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
